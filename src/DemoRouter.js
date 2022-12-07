@@ -9,6 +9,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import CrudDemo from "./CrudDemo";
+import EditForm from "./EditForm";
 import PersonDetails from "./PersonDetails";
 
 const DemoRouter = () => {
@@ -23,6 +24,7 @@ const DemoRouter = () => {
         <Route path="about" element={<About />} />
         <Route path="crud" element={<CrudDemo />} />
         <Route path="details/:id" element={<PersonDetails/>} />
+        <Route path="update/:id" element={<EditForm/>} />
         <Route path="error" element={<NotFound />} />
         <Route path="*" element={<Navigate to={"/error"} />} /> {/*All other paths will show Error page */}
       </Routes>

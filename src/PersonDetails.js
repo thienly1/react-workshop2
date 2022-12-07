@@ -45,7 +45,6 @@ const PersonDetails = () => {
                         <p>#{person.id}</p>
                         <p>{person.firstName} {person.lastName}</p>
                         <p>{person.email}</p>
-
                     </div>
                 </div>
                 <div className="card-footer">

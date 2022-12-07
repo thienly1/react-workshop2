@@ -2,6 +2,7 @@ import React, { useState, useEffect} from 'react';
 import axios from 'axios';
 import Table from './Table';
 import Form from './Form';
+import ExportList from './ExportList';
 
 const API_URL = "http://localhost:8080/api/v1/person";
 
@@ -65,8 +66,18 @@ const CrudDemo = () => {
     return (        
         <div className="container">        
            <div className="row"> 
-                <Form handleSave={savePerson}/>      
-                <Table persons={persons} handleDelete={deletePersonByID} />
+                <Form handleSave={savePerson}/> 
+                <div className='card'>
+                    <div className='card-header bg-info text-white'>
+                        <h4 className='d-grid col-md'>People List</h4>
+                    </div>
+                    <div className='card-body'>
+                    <Table persons={persons} handleDelete={deletePersonByID} />
+                    </div>
+                    <div className='card-footer bg-info'>
+                         <ExportList/> {/* because the backend Api datas are not saved in Json,but in H2 Database, so we are not able to use this function now.*/}
+                    </div>
+                </div>     
             </div>    
         </div>
     );

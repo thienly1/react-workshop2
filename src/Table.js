@@ -1,9 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Table = (props) => {
     const navigate = useNavigate();
     const handleDelete= props.handleDelete;
+
 
     const TableHeader=() =>{
         
@@ -23,7 +24,7 @@ const Table = (props) => {
             <>
             <button className='btn btn-primary' onClick={()=>navigate(`/details/${props.id}`)}>Details</button>
             <button className='btn btn-danger' onClick={()=> handleDelete(props.id)}>Delete</button>
-            <button className='btn btn-warning' disabled>Edit</button>
+            <button className='btn btn-warning' onClick={()=>navigate(`/update/${props.id}`)}>Edit</button>
             </>
         )        
     }
@@ -49,10 +50,10 @@ const Table = (props) => {
     }
     return (
         <div className='container'>
-            <table className='table table-striped'>            
+            <table className='table table-striped'>  
+                <TableHeader/>
                 <TableRow/>
-            </table>
-            
+            </table>            
         </div>
     );
 };
